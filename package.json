@@ -1,0 +1,29 @@
+{
+  "name": "jellyfinmediamanager",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matwin04/JellyfinMediaManager.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/matwin04/JellyfinMediaManager/issues"
+  },
+  "homepage": "https://github.com/matwin04/JellyfinMediaManager#readme",
+  "dependencies": {
+    "axios": "^1.8.1",
+    "cors": "^2.8.5",
+    "electron": "^35.0.0",
+    "express": "^4.21.2",
+    "express-handlebars": "^8.0.1",
+    "node-fetch": "^3.3.2"
+  }
+}

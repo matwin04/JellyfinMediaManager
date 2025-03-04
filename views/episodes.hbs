@@ -1,0 +1,21 @@
+<h2>Episodes</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Poster</th>
+            <th>Title</th>
+            <th>Season</th>
+            <th>Air Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each episodes}}
+        <tr>
+            <td><img src="{{../JELLYFIN_URL}}/Items/{{Id}}/Images/Primary?api_key={{../API_KEY}}.jpeg" class="poster"></td>
+            <td>{{Name}}</td>
+            <td>{{ParentIndexNumber}}</td>
+            <td>{{PremiereDate}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>

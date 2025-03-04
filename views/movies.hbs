@@ -1,0 +1,22 @@
+
+<h2>Movies</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Poster</th>
+            <th>Title</th>
+            <th>Year</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each movies}}
+        <tr>
+            <td>
+                <img src="{{JELLYFIN_URL}}/Items/{{Id}}/Images/Primary?api_key={{API_KEY}}" class="poster">
+            </td>
+            <td>{{Name}}</td>
+            <td>{{ProductionYear}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
