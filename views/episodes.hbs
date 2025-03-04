@@ -2,19 +2,26 @@
 <table>
     <thead>
         <tr>
-            <th>Poster</th>
+            <th>Episode Number</th>
             <th>Title</th>
+            <th>Name</th>
             <th>Season</th>
-            <th>Air Date</th>
+            <th>Subtitles</th>
+            <th>Video Format</th>
+            <th>Rating</th>
         </tr>
     </thead>
     <tbody>
         {{#each episodes}}
         <tr>
+            <td>{{IndexNumber}}</td>
             <td><img src="{{../JELLYFIN_URL}}/Items/{{Id}}/Images/Primary?api_key={{../API_KEY}}.jpeg" class="poster"></td>
             <td>{{Name}}</td>
-            <td>{{ParentIndexNumber}}</td>
-            <td>{{PremiereDate}}</td>
+            
+            <td>{{SeasonName}}</td>
+            <td>{{HasSubtitles}}</td>
+            <td>{{Container}}</td>
+            <td>{{CommunityRating}}</td>
         </tr>
         {{/each}}
     </tbody>

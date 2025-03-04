@@ -5,6 +5,7 @@
             <th>Poster</th>
             <th>Title</th>
             <th>Year</th>
+            <th>Rating</th>
         </tr>
     </thead>
     <tbody>
@@ -13,6 +14,7 @@
             <td><img src="{{../JELLYFIN_URL}}/Items/{{Id}}/Images/Primary?api_key={{../API_KEY}}" class="poster"></td>
             <td><a href="/episodes/{{Id}}">{{Name}}</a></td>
             <td>{{ProductionYear}}</td>
+            <td>{{OfficialRating}}</td>
         </tr>
         {{/each}}
     </tbody>
