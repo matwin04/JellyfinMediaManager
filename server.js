@@ -68,5 +68,29 @@ app.get("/episodes/:id", async (req, res) => {
         res.render("episodes", { episodes: [] });
     }
 });
+// Fetch and play an episode
+app.get("/items/:id", async (req, res) => {
+    const { id } = req.params;
+    try {
+        const response = await axios.get(`${JELLYFIN_URL}/Items/${id}`, {
+            headers: { "X-Emby-Token": API_KEY }
+        });
 
+        if (!response.data || response.data.length === 0) {
+            return res.status(404).send("Media item not found");
+        }
+
+        // Generate the stream URL
+        const streamUrl = `${JELLYFIN_URL}/Videos/${id}/stream?api_key=${API_KEY}`;
+
+        res.render("player", { 
+            item: response.data, 
+            streamUrl: streamUrl 
+        });
+
+    } catch (error) {
+        console.error("Error fetching media item:", error.message);
+        res.status(500).send("Error fetching media item");
+    }
+});
 app.listen(PORT, () => console.log(`Server running at http://localhost:${PORT}`));
