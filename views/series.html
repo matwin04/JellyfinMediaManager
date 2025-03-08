@@ -4,24 +4,32 @@
     <link href="/public/style.css" rel="stylesheet">
     <link href="/style.css" rel="stylesheet">
 </head>
-<h2>TV Shows</h2>
-<table>
-    <thead>
-        <tr>
-            <th>Poster</th>
-            <th>Title</th>
-            <th>Year</th>
-            <th>Rating</th>
-        </tr>
-    </thead>
-    <tbody>
-        {{#each series}}
-        <tr>
-            <td><img src="{{../JELLYFIN_URL}}/Items/{{Id}}/Images/Primary?api_key={{../API_KEY}}" class="poster"></td>
-            <td><a href="/episodes/{{Id}}">{{Name}}</a></td>
-            <td>{{ProductionYear}}</td>
-            <td>{{OfficialRating}}</td>
-        </tr>
-        {{/each}}
-    </tbody>
-</table>
+
+<section class="hero is-primary">
+    <div class="hero-body">
+        <h1 class="title">Movies</h1>
+        <a href="/" class="button is-normal">Back</a>
+    </div>
+</section>
+<div class="container mt-5">
+    <table class="table is-fullwidth is-striped">
+        <thead>
+            <tr>
+                <th>Poster</th>
+                <th>Title</th>
+                <th>Year</th>
+                <th>Rating</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each series}}
+            <tr>
+                <td><img src="{{../JELLYFIN_URL}}/Items/{{Id}}/Images/Primary?api_key={{../API_KEY}}" class="poster"></td>
+                <td><a href="/episodes/{{Id}}">{{Name}}</a></td>
+                <td>{{ProductionYear}}</td>
+                <td>{{OfficialRating}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>

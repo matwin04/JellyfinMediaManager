@@ -1,22 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies</title>
+    <link rel="stylesheet" href="/public/style.css">
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <section class="hero is-primary">
+        <div class="hero-body">
+            <h1 class="title">Movies</h1>
+        </div>
+    </section>
 
-<h2>Movies</h2>
-<table>
-    <thead>
-        <tr>
-            <th>Poster</th>
-            <th>Title</th>
-            <th>Year</th>
-        </tr>
-    </thead>
-    <tbody>
-        {{#each movies}}
-        <tr>
-            <td>
-                <img src="{{JELLYFIN_URL}}/Items/{{Id}}/Images/Primary?api_key={{API_KEY}}" class="poster">
-            </td>
-            <td>{{Name}}</td>
-            <td>{{ProductionYear}}</td>
-        </tr>
-        {{/each}}
-    </tbody>
-</table>
+    <div class="container mt-5">
+        <table class="table is-fullwidth is-striped">
+            <thead>
+                <tr>
+                    <th>Poster</th>
+                    <th>Title</th>
+                    <th>Year</th>
+                    <th>Rating</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each movies}}
+                <tr>
+                    <td>
+                        <img src="{{JELLYFIN_URL}}/Items/{{Id}}/Images/Primary?api_key={{API_KEY}}" class="poster">
+                    </td>
+                    <td>{{Name}}</td>
+                    <td>{{ProductionYear}}</td>
+                    <td>
+                        <a class="button is-normal"href="{{JELLYFIN_URL}}/Items/{{Id}}">WATCH</a>
+                    </td>
+                </tr>
+                {{/each}}    
+            </tbody>
+            
+        </table>
+    </div>
+</body>

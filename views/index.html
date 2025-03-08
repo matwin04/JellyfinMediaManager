@@ -1,7 +1,25 @@
+<!DOCTYPE html>
+<head>
+    <title>{{title}}</title>
+    <link href="/public/style.css" rel="stylesheet">
+    <link href="/style.css" rel="stylesheet">
+</head>
+<body>
+    <section class="hero is-dark">
+        <div class="hero-body">
+            <h1 class="title">Jellyfin Media Manager</h1>
+            <p class="subtitle">Manage and browse your Jellyfin media collection</p>
+        </div>
+    </section>
 
-<h2>Welcome to Jellyfin Media Manager</h2>
-<p>Select a category:</p>
-<ul>
-    <li><a href="/movies">Movies</a></li>
-    <li><a href="/series">TV Shows</a></li>
-</ul>
+    <div class="container mt-5">
+        <div class="columns">
+            <div class="column is-one-quarter">
+                <a href="/movies" class="button is-primary is-fullwidth">Movies</a>
+            </div>
+            <div class="column is-one-quarter">
+                <a href="/series" class="button is-primary is-fullwidth">Shows</a>
+            </div>
+        </div>
+    </div>
+</body>
