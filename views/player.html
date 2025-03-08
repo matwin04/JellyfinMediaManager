@@ -3,19 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{item.Name}} - Player</title>
-    <link rel="stylesheet" href="/styles.css">
+    <title>{{Name}} - Player</title>
+    <link rel="stylesheet" href="/public/style.css">
 </head>
 <body>
-    <h1>{{item.Name}}</h1>
-    <p>{{item.Overview}}</p>
+    
+    {{>navbar}}
+    <div class="container mt-5">
+        <div class="columns">
 
-    <video controls width="800">
-        <source src="{{streamUrl}}" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
+            <!-- Video Section (Left Side) -->
+            <div class="column is-two-thirds">
+                <figure class="image is-16by9">
+                    <video controls class="has-ratio">
+                        <source src="{{fileUrl}}" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </figure>
+            </div>
 
-    <p>Year: {{item.ProductionYear}}</p>
-    <p>Rating: {{item.OfficialRating}}</p>
+            <!-- Info Section (Right Side) -->
+            <div class="column is-one-third">
+                <div class="box">
+                    <h1 class="title">{{item.SeriesName}}</h1>
+                    <h2 class="subtitle">{{item.Name}}</h2>
+                    <hr>
+                    <p><span class="material-icons">calendar_today</span> Year: {{item.ProductionYear}}</p>
+                    <p><span class="material-icons">star</span> Rating: {{item.OfficialRating}}</p>
+                    <p><span class="material-icons">movie</span> Season: {{item.SeasonName}}</p>
+                    <p><span class="material-icons">confirmation_number</span> Episode: {{item.IndexNumber}}</p>
+                    <p><span class="material-icons">info_i</span>{{item.Overview}}</p>
+                </div>
+                <a class="button is-info" href="/">Home</a>
+            </div>
+
+        </div>
+    </div>
 </body>
 </html>

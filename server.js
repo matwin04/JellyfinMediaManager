@@ -69,15 +69,38 @@ app.get("/episodes/:id", async (req, res) => {
     }
 });
 // Fetch and play an episode
-app.get("/items/:id", async (req, res) => {
+app.get("/player/:id", async (req, res) => {
     const { id } = req.params;
+    
     try {
-        const response = await axios.get(`${JELLYFIN_URL}/Items/${id}/File`, {
+        // Fetch User ID (Replace 'USERNAME' with your actual Jellyfin username)
+        const userResponse = await axios.get(`${JELLYFIN_URL}/Users`, {
             headers: { "X-Emby-Token": API_KEY }
         });
+
+        if (!userResponse.data || userResponse.data.length === 0) {
+            throw new Error("No users found in Jellyfin.");
+        }
+
+        const userId = userResponse.data[0].Id; // Get first user
+
+        // Fetch episode details using correct endpoint
+        const response = await axios.get(`${JELLYFIN_URL}/Users/${userId}/Items/${id}`, {
+            headers: { "X-Emby-Token": API_KEY }
+        });
+
+        // Construct the file URL
+        const fileUrl = `${JELLYFIN_URL}/Items/${id}/file?api_key=${API_KEY}`;
+
+        // Render the player page
+        res.render("player", { 
+            item: response.data,
+            fileUrl: fileUrl 
+        });
+
     } catch (error) {
-        console.error("Error fetching media item:", error.message);
-        res.status(500).send("Error fetching media item");
+        console.error("Error fetching episode:", error.message);
+        res.render("player", { item: {}, fileUrl: "" });
     }
 });
 app.listen(PORT, () => console.log(`Server running at http://localhost:${PORT}`));

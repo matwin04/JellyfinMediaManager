@@ -25,7 +25,7 @@ function createMainWindow() {
 
 // Start the Express server first
 function startServer() {
-    const serverProcess = exec("node server/server.js");
+    const serverProcess = exec("node server.js");
 
     serverProcess.stdout.on("data", (data) => console.log(`Server: ${data}`));
     serverProcess.stderr.on("data", (data) => console.error(`Server Error: ${data}`));
