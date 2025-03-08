@@ -1,5 +1,11 @@
-<h2>Episodes</h2>
-<table>
+<!DOCTYPE html>
+<head>
+    <title>{{title}}</title>
+    <link href="/public/style.css" rel="stylesheet">
+    <link href="/style.css" rel="stylesheet">
+</head>
+<h1 class="title">Episodes</h1>
+<table class="table is-fullwidth">
     <thead>
         <tr>
             <th>Episode Number</th>
@@ -16,6 +22,7 @@
         <tr>
             <td>{{IndexNumber}}</td>
             <td><img src="{{../JELLYFIN_URL}}/Items/{{Id}}/Images/Primary?api_key={{../API_KEY}}.jpeg" class="poster"></td>
+            td><a href="/episodes/{{Id}}/">{{Name}}</a></td>
             <td>{{Name}}</td>
             
             <td>{{SeasonName}}</td>

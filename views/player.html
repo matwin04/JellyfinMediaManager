@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<head>
+    <title>Player</title>
+</head>
+<body>
+    <section class="section">
+        <div class="container">
+            <h1 class="title">Now Playing</h1>
+            <div class="box">
+                <video id="player" controls>
+                    <source id="video-source" src="" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <a href="index.html" class="button is-primary">Back to Library</a>
+        </div>
+    </section>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const itemId = urlParams.get("id");
+        const API_URL = "http://192.168.10.109:8096";  // Replace with your server IP
+
+        if (itemId) {
+            document.getElementById("video-source").src = `${API_URL}/Videos/${itemId}/stream.mp4?api_key=YOUR_API_KEY`;
+            document.getElementById("player").load();
+        }
+    </script>

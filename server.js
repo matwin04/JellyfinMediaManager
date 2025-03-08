@@ -13,13 +13,20 @@ app.use((req, res, next) => {
     res.locals.API_KEY = API_KEY;
     next();
 });
-// Setup Handlebars
-app.engine("hbs", engine({ extname: ".hbs" }));
-app.set("view engine", "hbs");
-app.set("views", path.join(__dirname, "../views"));
+//Middleware
+app.engine("html", engine({ 
+    extname: ".html", 
+    defaultLayout: false,
+    partialsDir: path.join(__dirname, "views/partials") 
+}));
+app.set("view engine", "html");
+app.set("views", path.join(__dirname, "views"));
 
-app.use(express.static(path.join(__dirname, "../public")));
+//Json
+app.use(express.json());
 
+//Static Routes
+app.use("/public", express.static(path.join(__dirname, "public")));
 // Home route
 app.get("/", (req, res) => {
     res.render("index");
