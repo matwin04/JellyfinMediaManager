@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Audio</title>
+    <link rel="stylesheet" href="/public/style.css">
+</head>
+<body>
+
+{{>navbar}}
+<div class="container mt-5">
+    <div class="table-responsive">
+        <table class="table table-dark table-striped">
+            <thead>
+            <tr>
+                <th>Cover</th>
+                <th>Title</th>
+                <th>Artist</th>
+                <th>Play</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{#each music}}
+            <tr>
+                <td>
+                    <img src="{{../JELLYFIN_URL}}/Items/{{Id}}/Images/Primary?api_key={{../API_KEY}}" class="poster img-thumbnail">
+                </td>
+                <td>{{Id}}</td>
+                <td>{{Name}}</td>
+                <td>{{AlbumArtist}}</td>
+
+            </tr>
+            {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>

@@ -55,7 +55,17 @@ app.get("/series", async (req, res) => {
         res.render("series", { series: [] });
     }
 });
-
+app.get("/music",async (req,res)=>{
+    try {
+        const response = await axios.get(`${JELLYFIN_URL}/Items?IncludeItemTypes=Audio&Recursive=true`,{
+            headers:{"X-Emby-Token":API_KEY}
+        });
+        res.render("music",{music:response.data.Items});
+    } catch (error) {
+        console.error("ERROR FETCHING MUSIC: ",error.message);
+        res.render("music",{music:[]});
+    }
+});
 // Fetch Episodes
 app.get("/episodes/:id", async (req, res) => {
     const { id } = req.params;
